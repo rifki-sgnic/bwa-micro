@@ -1,9 +1,13 @@
-var express = require("express");
-var router = express.Router();
+const express = require("express");
+const router = express.Router();
 
-/* GET home page. */
-router.get("/", function (req, res, next) {
-  res.send("media");
-});
+const mediaHandler = require("./handler/media");
+
+/* POST image. */
+router.post("/", mediaHandler.create);
+/* GET images */
+router.get("/", mediaHandler.getAll);
+/* DELETE image */
+router.delete("/:id", mediaHandler.destroy);
 
 module.exports = router;
