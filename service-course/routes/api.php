@@ -7,8 +7,6 @@ use App\Http\Controllers\LessonController;
 use App\Http\Controllers\MentorController;
 use App\Http\Controllers\MyCourseController;
 use App\Http\Controllers\ReviewController;
-use App\Models\Review;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,11 +20,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
 /* Mentors Endpoints */
+
 Route::get('/mentors', [MentorController::class, 'index']);
 Route::get('/mentors/{id}', [MentorController::class, 'show']);
 Route::post('/mentors', [MentorController::class, 'create']);
